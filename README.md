@@ -1,5 +1,5 @@
 
-## [Firefox-Alphα](#features) 🗿 Super clear desktop browser
+## [Firefox-Σigma](#features) 🗿 Super clear desktop browser
 
 <img src="assets/fire-alpha-adapt.gif" alt="firefox alpha preview animation adaptive colors" width="720" height="auto"/>
 
