@@ -18,6 +18,9 @@
 @import url("./simpleMenuWizard/tab-context.css");        /* ...a tab                                          */
 @import url("./simpleMenuWizard/toolbar-context.css");    /* ...the toolbar or tabbar                          */
 @import url("./simpleMenuWizard/urlbar-context.css");     /* ...the addressbar                                 */
+@import url("./simpleMenuWizard/context-viewvideo");	  /* Open Video in New Tab				*/
+@import url("./simpleMenuWizard/context-video-pictureinpicture");	  /* Open Video in PIP				*/
+
 @import url('urlbar.css');
 @import url('popup-search.css');
 * {font-family: "Google Sans Text" !important;}
@@ -146,6 +149,7 @@ menuitem[disabled], menu[disabled],
  }
 } */
 
+
 /* 🔗 Status Panel [Url Popup] */
 #statuspanel #statuspanel-label {
 /*  font-weight: 600 !important; */
@@ -266,6 +270,23 @@ menupopup > menu[_moz-menuactive] {
   color: black !important;  
 }
 #context-saveimage {
+ display: flex !important;
+}
+
+#context-viewvideo {
+ display: flex !important;
+}
+
+#context-sendvideo {
+ display: none !important;
+}
+
+
+#context-sendimage {
+ display: none !important;
+}
+
+#context-video-pictureinpicture {
  display: flex !important;
 }
 
