@@ -1,6 +1,20 @@
 
 ## [Firefox-Σigma](#features) 🗿 Super clear desktop browser
 
+### What this fork Changes
+
+Things such as having simpleMenuWizard (fixes context menus and tabs) in the chrome folder already installed
+Or simple things like adding the "Save image as..." button, i was surprised to see it not be there in the first place.
+
+This is the theme I've used for some time now. It would make you motivated to close unneeded tabs, or live with 4+ row of tabs lol.
+- **Added context menu buttons for saving images, opening videos in new tabs or copying their links**
+- **Fixed clickable tabs**
+- **Removed hidden URLBar**
+- **Fixed tabs being hidden behind URLBar**
+- **SOMEWHAT Fixed being able to drag tabs when more than 1 row**
+
+## Everything under this line is the same README as the original
+
 <img src="assets/fire-alpha-adapt.gif" alt="firefox alpha preview animation adaptive colors" width="720" height="auto"/>
 
 Fast and minimal Firefox configuration with zero buttons, for simplicity and intuitive gesture controls. 
@@ -9,14 +23,6 @@ In reality, this is a fork of VVV
 
 https://github.com/KiKaraage/Firefox-Alphaz
 But i have also added some things that in my opinion make it better
-
-
-Things such as having simpleMenuWizard (fixes context menus and tabs) in the chrome folder already installed
-
-Or simple things like adding the "Save image as..." button, i was surprised to see it not be there in the first place.
-
-
-This is the theme I've used for some time now. It would make you motivated to close unneeded tabs, or live with 4+ row of tabs lol.
 
 ### What's the same...
 - It's still **clean**. No window control buttons.
