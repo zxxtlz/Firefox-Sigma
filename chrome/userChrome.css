@@ -21,7 +21,7 @@
 @import url("./simpleMenuWizard/context-viewvideo");	  /* Open Video in New Tab				*/
 @import url("./simpleMenuWizard/context-video-pictureinpicture");	  /* Open Video in PIP				*/
 
-@import url('urlbar.css');
+/* @import url('urlbar.css'); */
 @import url('popup-search.css');
 * {font-family: "Google Sans Text" !important;}
 
@@ -318,7 +318,7 @@ menupopup > menu[_moz-menuactive] {
 
 #nav-bar {
   background-color: transparent !important;
-  margin: -22px 0 0 0 !important;
+  margin: 0 0 0 0 !important;
 }
 
 #nav-bar-customization-target {
@@ -334,16 +334,19 @@ scrollbox[part][orient="horizontal"] {
     height: none !important;
 }
 scrollbox[part][orient="horizontal"] > slot{
-    overflow-x: hidden;
+    overflow: visible !important;
 }
 
-#tabbrowser-tabs > * {
-  padding: 4px 0px 0px 4px !important;
-  margin: 3px !important;
+.tabbrowser-tab {
+  padding-top: 4px !important;
 }
 
-tab {
-  margin: 0 4px 0 0 !important;
+.tabbrowser-tab {
+  margin: 0 !important;
+}
+
+.tab-background {
+  margin: 2px !important;
 }
 
 .tabbrowser-tab[fadein]:not([pinned]) {
@@ -418,14 +421,23 @@ tab:not([pinned]):hover .tab-close-button {
     opacity: 1 !important;
 }
 
+#tabbrowser-arrowscrollbox {
+  display: flex !important;
+}
+
+#tabbrowser-arrowscrollbox::part(scrollbox) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
 /* New Tab by MMB on Tabs Toolbar  */
 #tabs-newtab-button,
 #tabbrowser-arrowscrollbox-periphery {
-  flex: 1;
+  flex: 0;
   align-items: stretch !important;
   opacity: 0 !important;
   padding-inline: 8px !important;
-  -moz-window-dragging: drag !important;
+  -moz-window-dragging: no-drag !important;
 }
 
 /* 🪟 Bookmarks Multi-row  */
@@ -549,9 +561,62 @@ tab:not([pinned]):hover .tab-close-button {
 }
 
 /* Search Suggestions Fix*/
-#urlbar-container #urlbar-input-container {
-  opacity: 0;
+/* Minimal Alpha-style URL bar */
+
+/* === Center URLBAR properly === */
+
+/* Make nav bar act like a centered flex container */
+#nav-bar-customization-target {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
 }
+
+/* Allow urlbar to center independently */
+#urlbar-container {
+  display: flex !important;
+  justify-content: center !important;
+  flex: 1 !important;
+}
+
+/* Prevent other items from pushing layout */
+#nav-bar-customization-target > :not(#urlbar-container) {
+  flex: 0 0 auto !important;
+}
+
+/* Center and constrain urlbar */
+#urlbar {
+  margin: 0 auto !important;
+  margin-left: 200px !important;
+  max-width: 700px !important; /* adjust as you like */
+}
+
+/* Optional: keeps it visually centered even when toolbar buttons exist */
+#urlbar-container {
+  justify-content: center !important;
+}
+
+#urlbar-background {
+  background: color-mix(in srgb,
+    var(--toolbar-bgcolor) 80%,
+    white 20%) !important;
+  border-radius: 12px !important;
+  opacity: .75 !important;
+}
+
+#urlbar:hover #urlbar-background {
+  opacity: .9 !important;
+}
+
+#urlbar[focused] #urlbar-background {
+  opacity: 1 !important;
+}
+
+#urlbar-input {
+  text-align: center !important;
+  font-size: 13px !important;
+}
+
 #urlbar:is([focused], [open]) > #urlbar-background, #searchbar:focus-within {
   background-color: var(--lwt-accent-color) !important;
 }
