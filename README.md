@@ -1,19 +1,31 @@
 
-## [Firefox-Σigma](#features) 🗿 Super clear desktop browser
-
-### What this fork Changes
-
-Things such as having simpleMenuWizard (fixes context menus and tabs) in the chrome folder already installed
-Or simple things like adding the "Save image as..." button, i was surprised to see it not be there in the first place.
-
-This is the theme I've used for some time now. It would make you motivated to close unneeded tabs, or live with 4+ row of tabs lol.
-- **Added context menu buttons for saving images, opening videos in new tabs or copying their links**
-- **Fixed clickable tabs**
-- **Removed hidden URLBar**
-- **Fixed tabs being hidden behind URLBar**
-- **SOMEWHAT Fixed being able to drag tabs when more than 1 row**
-
-## Everything under this line is the same README as the original
+# 🗿 Firefox-Σigma
+ 
+**A minimal, gesture-driven Firefox setup — zero window chrome, multi-row tabs, and a UI that gets out of your way.**
+ 
+Forked from [Tagggar/Firefox-Alpha](https://github.com/Tagggar/Firefox-Alpha), itself based on [KiKaraage/Firefox-Alphaz](https://github.com/KiKaraage/Firefox-Alphaz).
+ 
+## ✨ What this fork changes
+ 
+This is the config I actually use day to day, built to fix things that bugged me in the upstream theme and layer on a few of my own touches. It'll either motivate you to close unneeded tabs, or have you happily living with 4+ rows of them.
+ 
+**Fixes over upstream:**
+- Added context-menu buttons for saving images, and opening/copying video links
+- Fixed clickable tabs
+- Removed the hidden URL bar
+- Fixed tabs being hidden behind the URL bar
+- Somewhat fixed dragging tabs across multiple rows ( and by making my own extension )
+- `simpleMenuWizard` (fixes context menus and tabs) is already set up in the `chrome` folder — no separate install needed
+**New additions on top:**
+- Reworked downloads button — it no longer collides with the menu bar's drag region (was eating the clicks you'd use to move the window), and is now aligned to sit cleanly within the menu bar row instead of overflowing it
+- Centralized the accent color into a single CSS variable instead of it being hardcoded in half a dozen spots — swap your accent color in one place
+- Styled the bookmarks/history sidebar to match the rest of the theme (previously unstyled and jarringly bright against the dark chrome)
+- Thin, theme-matched scrollbars throughout, replacing Firefox's default
+- Hover feedback on inactive tabs (previously silent — only the close button reacted to anything)
+- Soft fade + scale-in animation on menus, the downloads panel, and the urlbar dropdown, instead of an instant snap
+- Dedicated dark-grey indicator color for the selected tab's edge marker, kept separate from the main accent color so it doesn't clash
+> ⚠️ **Note on the screenshots below:** everything from this point down is the original upstream README from Firefox-Alphaz, kept here for reference on shared features and install steps. The screenshots and GIFs in that section are from the *original* upstream theme, not this fork — colors, the downloads bar, and the sidebar in particular won't match exactly what you get with Firefox-Σigma. Updated screenshots of this fork are on the way.
+ 
 
 <img src="assets/fire-alpha-adapt.gif" alt="firefox alpha preview animation adaptive colors" width="720" height="auto"/>
 
