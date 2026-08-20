@@ -5,7 +5,10 @@
   }
 }
 
-/* Highlight color inside browser content window */
+/* Highlight color inside browser content window
+   Kept in sync manually with --accent in userChrome.css — content and
+   chrome are separate documents, so a CSS custom property can't be
+   shared between the two files. */
 ::selection {
   background-color: dodgerblue !important;
   color: white !important;

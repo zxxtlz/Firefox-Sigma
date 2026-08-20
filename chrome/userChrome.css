@@ -37,6 +37,9 @@
   --item: #77777730;
   --grey: #b8b8b8;
   --red: #ff000070;
+  --accent: dodgerblue; /* single source of truth: selection, urlbar focus, download progress all pull from this */
+  --accent-soft: deepskyblue;
+  --tab-indicator: #4a4a4a; /* dark grey to match the tab palette, used only for the selected-tab edge marker */
   
   --toolbarbutton-hover-background: transparent !important;
   --toolbarbutton-active-background: transparent !important;
@@ -51,7 +54,7 @@
 
 /* Highlight Selection color */
 ::selection {
-  background-color: dodgerblue !important;
+  background-color: var(--accent) !important;
   color: white !important;
 }
 
@@ -427,7 +430,9 @@ tab:not([pinned]):hover .tab-close-button {
 
 #tabbrowser-arrowscrollbox::part(scrollbox) {
   display: flex !important;
+  flex-direction: row !important;
   flex-wrap: wrap !important;
+  align-content: flex-start !important;
 }
 
 /* New Tab by MMB on Tabs Toolbar  */
@@ -500,31 +505,34 @@ tab:not([pinned]):hover .tab-close-button {
 
 /* ⬇️ Downloads Indicator */
 #downloads-button {
-  position: fixed ;
+  position: fixed;
   top: 0;
   right: 0;
   width: var(--tab-min-height);
-  z-index: 1;
+  height: 32px; /* matches the menu bar row (6px margin-top + 24px + 2px margin-bottom) */
+  z-index: 4; /* above #toolbar-menubar (z-index: 3) so it's never clipped by it */
+  -moz-window-dragging: no-drag !important; /* stops it from eating the menu bar's drag clicks */
 }
 #downloads-indicator-progress-outer {
   position: fixed !important;
   align-items: end !important;
-  top: var(--8) !important;
+  top: 6px !important; /* aligns with #toolbar-menubar's margin-block start */
   right: var(--8) !important;
   left: auto !important;
   width: var(--6) !important;
-  height: var(--tab-min-height) !important;
+  height: 24px !important; /* matches #toolbar-menubar's min-height, no overflow past it */
   border-radius: var(--6) !important;
   background: var(--item);
   visibility: visible !important;
+  -moz-window-dragging: no-drag !important;
 }
 #downloads-indicator-progress-inner {
-  background: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='24' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='6' height='24' fill='dodgerblue'/%3e%3c/svg%3e") bottom no-repeat !important;
+  background: var(--accent) !important;
   height: var(--download-progress-pcent) !important;
   border-radius: var(--6) !important;
 }
 #downloads-button[attention="success"] #downloads-indicator-progress-outer {
-  background: deepskyblue !important;
+  background: var(--accent-soft) !important;
 }
 #downloads-button:is([attention="warning"], [attention="severe"])
   #downloads-indicator-progress-inner {
@@ -698,4 +706,83 @@ tab:not([pinned]):hover .tab-close-button {
 [place="panel"]) > #edit-controls, #wrapper-zoom-controls:is([place="palette"], 
 [place="panel"]) > #zoom-controls, :is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
   margin: 5px !important;
+}
+
+
+/* ============================================================ */
+/* 🎨 Personal Touches — additions on top of the base Alphaz theme */
+/* ============================================================ */
+
+/* 🪟 Sidebar (bookmarks / history / synced tabs)
+   Untouched, this renders as a bright default panel that clashes
+   hard against the rest of the dark, translucent chrome. */
+#sidebar-box {
+  background-color: var(--toolbar-bgcolor) !important;
+}
+#sidebar-header {
+  background: transparent !important;
+  min-height: var(--tab-min-height) !important;
+  padding-inline: var(--6) !important;
+  border-radius: var(--6) var(--6) 0 0 !important;
+}
+#sidebar {
+  color-scheme: dark !important; /* keeps bookmark/history text legible on the dark background */
+}
+#sidebar-search-container {
+  padding: var(--6) !important;
+}
+.sidebar-placesTree {
+  border-radius: var(--6) !important;
+}
+
+/* 🩶 Thin, theme-matched scrollbars everywhere in the chrome
+   (sidebar, panels, menus) instead of Firefox's default fat gray one. */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--main) transparent !important;
+}
+
+/* 🖱️ Tab hover feedback
+   Right now only the selected tab and the close button react to
+   anything — hovering an unselected tab is completely silent. */
+.tabbrowser-tab:hover .tab-background:not([selected]) {
+  background: var(--item) !important;
+  opacity: 1 !important;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Give the selected-tab edge indicator a touch more presence and a
+   smooth transition when switching tabs, instead of an instant snap. */
+#tabbrowser-tabs .tabbrowser-tab[selected] .tab-background {
+  border-right: 3px solid var(--tab-indicator) !important;
+  transition: border-color 0.2s ease;
+}
+
+/* 🔎 Urlbar focus ring
+   Focus currently only nudges background opacity from .9 to 1 —
+   easy to miss. A slim accent-colored ring makes focus unambiguous. */
+#urlbar[focused] > #urlbar-background {
+  outline: 1.5px solid var(--accent) !important;
+  outline-offset: -1.5px !important;
+}
+
+/* 🎬 Popup / panel entrance animation
+   Menus, the downloads panel, and the urlbar dropdown currently just
+   snap open. A soft fade + scale-in reads as more deliberate and
+   matches the 0.3s ease transitions already used on the menu bar
+   and unified-extensions button elsewhere in this theme. */
+menupopup,
+panel,
+.urlbarView {
+  animation: uc-panel-in 0.12s ease-out !important;
+}
+@keyframes uc-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
