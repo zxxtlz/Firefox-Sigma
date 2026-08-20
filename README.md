@@ -4,6 +4,10 @@
 **A minimal, gesture-driven Firefox setup — zero window chrome, multi-row tabs, and a UI that gets out of your way.**
  
 Forked from [Tagggar/Firefox-Alpha](https://github.com/Tagggar/Firefox-Alpha), itself based on [KiKaraage/Firefox-Alphaz](https://github.com/KiKaraage/Firefox-Alphaz).
+
+## 👀 Preview
+[demo.mp4](https://github.com/user-attachments/assets/2f9edd7a-a9a6-4986-9aa3-555f253c737d)
+
  
 ## ✨ What this fork changes
  
