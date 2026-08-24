@@ -1,5 +1,5 @@
 
-# 🗿 Firefox-Σigma
+# 🐺 Firefox-Σigma
  
 **A minimal, gesture-driven Firefox setup — zero window chrome, multi-row tabs, and a UI that gets out of your way.**
  
