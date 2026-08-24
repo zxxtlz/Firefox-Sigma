@@ -260,6 +260,6 @@ The reliance on personalized suggestions may result in the formation of echo cha
 
 ## Support
 
-### [<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Microsoft-Teams-Animated-Emojis/master/Emojis/Travel%20and%20places/Star.png" alt="Star" width="25" height="25" align="top"/> Star Project](https://github.com/Tagggar/Firefox-Alpha) &nbsp; [<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Ghost.png" alt="Ghost" width="25" height="25" align="top"/> Buy a Coffee](https://www.buymeacoffee.com/taggar)
+### ⭐ [Star Project](https://github.com/zxxtlz/Firefox-Sigma/)
 
-### [<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="25" height="25" align="top"/> More Projects](https://tagggar.github.io)
+### [<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="High Voltage" width="25" height="25" align="top"/> More Projects](https://github.com/zxxtlz)
