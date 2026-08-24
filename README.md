@@ -6,7 +6,7 @@
 Forked from [Tagggar/Firefox-Alpha](https://github.com/Tagggar/Firefox-Alpha), itself based on [KiKaraage/Firefox-Alphaz](https://github.com/KiKaraage/Firefox-Alphaz).
 
 ## 👀 Preview
-[demo.mp4](https://github.com/user-attachments/assets/2f9edd7a-a9a6-4986-9aa3-555f253c737d)
+[demo.mp4](https://github.com/user-attachments/assets/172b66cf-1a3b-497c-8793-e6495384a95e)
 
  
 ## ✨ What this fork changes
