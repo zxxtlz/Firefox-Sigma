@@ -595,13 +595,23 @@ tab:not([pinned]):hover .tab-close-button {
 /* Center and constrain urlbar */
 #urlbar {
   margin: 0 auto !important;
-  margin-left: 200px !important;
-  max-width: 700px !important; /* adjust as you like */
+  margin-left: max(0px, calc(50vw - 350px)) !important;
+  max-width: 700px !important;
 }
 
 /* Optional: keeps it visually centered even when toolbar buttons exist */
 #urlbar-container {
   justify-content: center !important;
+}
+
+/* Newer Firefox renders the urlbar as a popover (top layer, [breakout]), so it
+   is positioned against the window instead of being centered by the toolbar's
+   flex layout above. Centering it against the window explicitly (left/right: 0
+   + auto margins + the 700px max-width) works for both the resting and the
+   focused/extended states. */
+#urlbar[breakout] {
+  inset-inline: 0 !important;
+  margin-inline: auto !important;
 }
 
 #urlbar-background {
