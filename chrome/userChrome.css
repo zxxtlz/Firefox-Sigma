@@ -164,30 +164,65 @@ menuitem[disabled], menu[disabled],
 
 /* ℹ️ Findbar Ctrl+F */
 findbar {
+  --findbar-h: 24px;
   padding: 0 !important;
   margin-inline-start: var(--8) !important;
   margin-block-end: var(--8) !important;
   border-radius: var(--8) !important;
-  width: 240px;
+  width: 200px;
+  height: var(--findbar-h) !important;
+  min-height: 0 !important; /* Firefox forces ~41px here, which made the bar too tall */
+  box-sizing: border-box !important;
+  align-items: center !important;
   background: var(--grey) !important;
   order: -1;
 }
+
+/* Findbar position: new Firefox lays out .browserContainer as a grid and ignores `order`,
+   so move the findbar row above the page (older flex layouts still use `order: -1` above) */
+.browserContainer {
+  grid-template-areas:
+    "devtools-side-start      devtools-side-start-splitter findbar                  devtools-side-end-splitter  devtools-side-end"
+    "devtools-side-start      devtools-side-start-splitter notificationbox          devtools-side-end-splitter  devtools-side-end"
+    "devtools-side-start      devtools-side-start-splitter rdm-toolbar              devtools-side-end-splitter  devtools-side-end"
+    "devtools-side-start      devtools-side-start-splitter browserstack             devtools-side-end-splitter  devtools-side-end"
+    "devtools-bottom-splitter devtools-bottom-splitter     devtools-bottom-splitter devtools-bottom-splitter    devtools-bottom-splitter"
+    "devtools-bottom          devtools-bottom              devtools-bottom          devtools-bottom             devtools-bottom" !important;
+  grid-template-rows:
+    auto
+    auto
+    var(--rdm-toolbar-height, 0)
+    minmax(var(--content-area-min-size, 0px), 1fr)
+    auto
+    auto !important;
+}
+
+/* Fully remove the findbar when closed (otherwise the margin override above leaves a blank gap) */
+findbar[hidden] {
+  display: none !important;
+}
+
 .findbar-container {
   padding: 0 !important;
   margin: 0 !important;
-  height: var(--tab-min-height) !important;
+  height: var(--findbar-h) !important;
+  align-items: center !important;
 }
 .findbar-textbox {
-  width: 168px !important;
+  width: 120px !important;
   padding-inline: var(--6) !important;
-  height: var(--tab-min-height) !important;
+  padding-block: 0 !important;
+  height: var(--findbar-h) !important;
+  min-height: 0 !important;
   color: black !important;
   background: none !important;
 }
 findbar toolbarbutton {
   width: 24px;
+  height: var(--findbar-h) !important;
   padding: 4px !important;
   margin: 0 !important;
+  align-self: center !important;
   background: none !important;
   fill: black !important;
   scale: 0.7;
